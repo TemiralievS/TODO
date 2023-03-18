@@ -22,7 +22,7 @@ from rest_framework.routers import DefaultRouter
 from todoapp.views import ToDoViewSet, ProjectViewSet
 from userapp.views import UserViewSet
 from rest_framework.authtoken import views
-
+from graphene_django.views import GraphQLView
 from userappV2.views import UserListAPIView
 from django.contrib.auth import get_user_model
 User = get_user_model()
@@ -49,6 +49,8 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include(router.urls)),
     path('api-token-auth/', views.obtain_auth_token),
+
+    path("graphql/", GraphQLView.as_view(graphiql=True)),
 
     path('api/<str:version>/users/', UserListAPIView.as_view()),
     # path('api/users/0.1', include('userapp.urls', namespace='0.1')),

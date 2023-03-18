@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'graphene_django',
     'rest_framework',
     'corsheaders',
     'django_filters',
@@ -155,6 +156,10 @@ REST_FRAMEWORK = {
     # 'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning',
     # 'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.AcceptHeaderVersioning',
     # 'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.QueryParameterVersioning',
+}
+
+GRAPHENE = {
+    "SCHEMA": "todo.schema.schema"
 }
 
 CORS_ALLOWED_ORIGINS = [
